@@ -1,3 +1,13 @@
 header {
     text-align: right;
+    background-color: rgb(33,37,41);
+    height: 100px;
+}
+.logo {
+    width: 80px;
+    top: 2px;
+    z-index: 10;
+    display: flex;
+    float: left;
+    filter: brightness(100);
 }
