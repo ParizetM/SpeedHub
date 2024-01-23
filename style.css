@@ -29,7 +29,7 @@ header {
   font-size: 100%;
   font-weight: 900;
   line-height: 1.5;
-  margin: 0;
+  margin: 10px;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
 }
