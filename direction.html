@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /*loop through a collection of all HTML elements:*/
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain attribute:*/
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          /*make an HTTP request using the attribute value as the file name:*/
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) {
+                elmnt.innerHTML = this.responseText;
+              }
+              if (this.status == 404) {
+                elmnt.innerHTML = "Page not found.";
+              }
+              /*remove the attribute, and call this function once more:*/
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          };
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /*exit the function:*/
+          return;
+        }
+      }
+    }
+  </script>
+  <head>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+      <title>Bootstrap Example</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <header include-html="header2.html"></header>
+        <div class="container_postes">
+            <h1>Configuration du Poste de Direction:</h1>
+            <div class="postes_ligne_gris">
+                <h2>Ordinateur Portable :</h2>
+                <div class="postes_grid_c1_c2">
+                    <img src="IMG/pc_portable.png" alt="">
+                    <div>
+                        <h2>HP 250 G10</h2>
+                        <ul>
+                            <li>Écran : 15,6 pouces, FHD</li>
+                            <li>Système d'exploitation : Windows 11 Pro</li>
+                            <li>Processeur : Intel® Core™ i3</li>
+                            <li>Mémoire : 8 Go de RAM</li>
+                            <li>Stockage : SSD 512 Go</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="_ligne_postes_card_x3">
+                <div>
+                    <h2>Souris</h2>
+                    <img src="IMG/souris_ergo.png" alt="Souris" style="transform: scaleX(-1);">
+                    <h3>Série Ergo LIFT Logitech</h3>
+                    <p></p>
+                </div>
+                <div>
+                    <h2>Clavier</h2>
+                    <img src="IMG/Clavier.png" alt="Clavier">
+                    <h3>Clavier Sans Fil K270 Logitech</h3>
+                    <p></p>
+                </div>
+                <div>
+                    <h2>Station multiconnectique</h2>
+                    <img src="IMG/hub_usb.png" alt="HUB USB">
+                    <h3>Station d'accueil Belkin USB-C multiport 11-en-1</h3>
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+<footer include-html="footer.html"></footer>
+    <script>
+        includeHTML();
+      </script>
+  </body>
+</html>
