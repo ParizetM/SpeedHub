@@ -21,7 +21,6 @@ header {
     filter: brightness(100);
 }
 
-
 /* #region btn31 */
 .btn-31,
 .btn-31 *,
@@ -156,3 +155,35 @@ header {
   }
 }
 /* #endregion btn31 */
+
+
+
+
+h1, h2 {
+  color: #00a7e1; /* Bleu vif */
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type:circle;
+  padding: 0;
+}
+
+ul li {
+  list-style-type:circle;
+  margin-left: 40%;
+}
+
+.spacement-texte {
+  margin-bottom: 5px; /* Ajoute un espacement en bas du texte */
+  padding-top: 50px;
+}
+.bloc_text{
+  width: 400px;
+  height: 150px;
+  margin: auto;
+}
