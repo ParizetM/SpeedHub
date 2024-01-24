@@ -20,7 +20,10 @@ header {
 .filter_blanc {
     filter: brightness(100);
 }
-
+.carousel {
+  margin: auto;
+  width: 67.7%;
+}
 
 /* #region btn31 */
 .btn-31,
