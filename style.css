@@ -21,6 +21,12 @@ header {
     filter: brightness(100);
 }
 
+.carousel {
+  margin: auto;
+  width: 67.7%;
+}
+
+
 /* #region btn31 */
 .btn-31,
 .btn-31 *,
@@ -182,6 +188,7 @@ ul li {
   margin-bottom: 5px; /* Ajoute un espacement en bas du texte */
   padding-top: 50px;
 }
+
 .bloc_text{
   width: 400px;
   height: 150px;
