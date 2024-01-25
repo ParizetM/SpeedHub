@@ -1,0 +1,198 @@
+<!-- Configuration du Poste Étude et Production: -->
+<!DOCTYPE html>
+<html lang="fr">
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /*loop through a collection of all HTML elements:*/
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain attribute:*/
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          /*make an HTTP request using the attribute value as the file name:*/
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) {
+                elmnt.innerHTML = this.responseText;
+              }
+              if (this.status == 404) {
+                elmnt.innerHTML = "Page not found.";
+              }
+              /*remove the attribute, and call this function once more:*/
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          };
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /*exit the function:*/
+          return;
+        }
+      }
+    }
+  </script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Configuration du Poste Étude et Production</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header include-html="header2.html"></header>
+    <div class="container_postes">
+      <h1>Configuration du Poste Étude et Production:</h1>
+      <div class="postes_ligne_gris">
+        <h2>Logiciel de Conception Assistée par Ordinateur (CAO) :</h2>
+        <div class="postes_grid_c1_c2">
+          <img src="IMG/solidworks.png" alt="">
+          <div>
+            <h2>Solidworks</h2>
+            <ul>
+              <li>Prix HT du Logiciel: 5 833,33 €</li>
+              <li>Prix TTC du Logiciel: 7 000,00 €</li>
+              <p class="card-text">
+                <span class="text-success font-weight-bold">HT : 5 833,33 €</span>
+                <span class="text-danger font-weight-bold">ㅤTTC : 7 000,00 €</span>
+              </p>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x2">
+        <div class="card mb-3 cgauche" style="max-width: 540px;">
+          <img src="IMG/microsoft_365.png" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Traitement de Texte, Tableau et Client de Messagerie</h5>
+            <p class="card-text">Logiciels Utilisés: Microsoft 365 (Word, Excel, Outlook)</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 11,70 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 81,90 €</span><br>ㅤ
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3 cdroit" style="max-width: 540px;">
+          <img src="IMG/cura.png" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Chaîne Logicielle pour Piloter les Imprimantes 3D</h5>
+            <p class="card-text">Logiciels Utilisés: UltiMaker Cura (FDM), Logiciel dédié (SLA)</p>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x2">
+        <div class="card mb-3 cgauche" style="max-width: 540px;">
+            <img src="IMG/clavier.png" class="card-img-top" alt="..." style="transform: scaleX(-1);">
+            <img src="IMG/souris_ergo.png" class="card-img-top img-fluid" alt="..." style=" width: 10rem; margin: auto;">
+          <div class="card-body">
+            <h5 class="card-title">Clavier et Souris Ergonomiques</h5>
+            <p class="card-text">Produit Utilisé: Logitech (Modèles ergonomiques)</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 119,98 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 143,98 €</span><br>ㅤ
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3 cdroit" style="max-width: 540px;">
+          <img src="IMG/tablette_graphique.webp" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Tablette Graphique avec Stylet</h5>
+            <p class="card-text">Produit Utilisé: Xp pen Deco 03</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 65,83 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 79,00 €</span><br>ㅤ
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x3">
+        <div class="card" style="width: 18rem;">
+          <img src="IMG/ecran_32p.avif" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Écrans 32 Pouces en 4K UHD</h5>
+            <p class="card-text">Produit Utilisé: Samsung (Quantité: 2)</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 465,66 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 558,79 €</span>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="IMG/scanner_3d.avif" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Scanner en Trois Dimensions</h5>
+            <p class="card-text">Produit Utilisé: Revopoint POP 3</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 551,00 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 661,20 €</span>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="IMG/imprimante_couleur.avif" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Imprimante Couleur Jet d'Encre A4 et A3</h5>
+            <p class="card-text">Produit Utilisé: HP OfficeJet Pro 9720e</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 208,25 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 249,90 €</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x2">
+        <div class="card mb-3 cgauche" style="max-width: 540px;">
+          <img src="IMG/imprimante_3d_fdm.webp" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Imprimante 3D Fused Deposition Modeling (FDM)</h5>
+            <p class="card-text">Produit Utilisé: K1 Max AI Fast 3D Printer Essential Combo</p>
+            <span class="text-success font-weight-bold">HT : 999,00 €</span>
+                <span class="text-danger font-weight-bold">ㅤTTC : 1 198,80 €</span><br>ㅤ
+          </div>
+        </div>
+        <div class="card mb-3 cdroit" style="max-width: 540px;">
+          <img src="IMG/imprimante_3d_sla.png" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Imprimante 3D Stereolithography Apparatus (SLA)</h5>
+            <p class="card-text">Produit Utilisé: Peopoly Phenom L</p>
+            <span class="text-success font-weight-bold">HT : 532,00 €</span>
+                <span class="text-danger font-weight-bold">ㅤTTC : 638,40 €</span><br>ㅤ
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x2">
+        <div class="card mb-3 cgauche" style="max-width: 540px;">
+          <img src="IMG/ordinateur_hp.avif" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Ordinateur avec RTX A2000</h5>
+            <ul>
+              <li>Modèle Utilisé: HP Z2 G9 Tour, Windows 11 Professionnel, i7, 32 Go, 1 To SSD, RTX™️ A2000</li>
+              <li>Processeur: Intel® Core™ i7</li>
+              <li>Mémoire: 32 Go de RAM</li>
+              <li>Stockage: SSD 1 To</li>
+              <li>Carte Graphique: NVIDIA RTX A2000</li>
+              <p class="card-text">
+                <span class="text-success font-weight-bold">HT : 2 077,99 €</span>
+                <span class="text-danger font-weight-bold">ㅤTTC : 2 493,59 €</span><br>ㅤ
+              </p>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="Languette_total">
+        <h2>Prix total : <span class="text-success font-weight-bold">HT : 11 867,41 € €</span>
+            <span class="text-danger font-weight-bold">ㅤTTC : 14 240,90 € €</span></h2>
+      </div>
+    </div>
+    <footer include-html="footer.html"></footer>
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
