@@ -1,9 +1,20 @@
+:root {
+  --fond: #f5f5f5;
+  --fonce: #676b6f;
+  --moyen: #a3a3a3;
+  --claire: #dbd6d0;
+  --autre: #cfc5ba;
+  --texte_claire: #dbd6d0;
+  --texte_fonce: #676b6f;
+
+}
 body {
     display: grid;
     grid-template-columns: 0 auto 0;
 }
 body > *{
     grid-column: 2;
+    background-color: var(--fond) ;
 }
 @media screen and (min-width: 1920px) {
     body {
@@ -36,11 +47,11 @@ header {
 }
 
 .btn-31 {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: var(--claire);
   -webkit-appearance: button;
-  background-color: rgb(33,37,41);
+  background-color: var(--fonce);
   background-image: none;
-  color: #fff;
+  color: white;
   cursor: pointer;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
@@ -49,7 +60,6 @@ header {
   font-weight: 900;
   line-height: 1.5;
   margin: 10px;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
 }
 
@@ -79,7 +89,7 @@ header {
 
 .btn-31:before {
   --progress: 100%;
-  background: #fff;
+  background: var(--claire);
   -webkit-clip-path: polygon(
     100% 0,
     var(--progress) var(--progress),
@@ -197,7 +207,7 @@ h1 {
 }
 
 .texte_div a {
-  color: #222529;
+  color: #aaaaaa;
   text-decoration: none;
 }
 
@@ -207,11 +217,13 @@ h1 {
 
 }
 
-
+nav {
+  background-color: #6c6f75;
+}
 .nav2 {
   max-width: 90%;
   margin-left: 5%;
-  background: linear-gradient(to top, #222529 50%, #16181b 100%);
+  background: linear-gradient(to top, #6c6f75 80%, #25272b 100%);
 }
 /* #region btn32 */
 
@@ -229,7 +241,7 @@ h1 {
 .btn-32 {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
-  background-color: rgb(33,37,41);
+  background-color: var(--fonce);
   background-image: none;
   color: #fff;
   cursor: pointer;
@@ -270,7 +282,7 @@ h1 {
 
 .btn-32:before {
   --progress: 100%;
-  background: #fff;
+  background: var(--claire);
   -webkit-clip-path: polygon(
     100% 0,
     var(--progress) var(--progress),
@@ -317,7 +329,7 @@ h1 {
 /* #endregion btn32*/
 
 .postes_ligne_gris {
-  background-color: #808c9b;
+  background-color: #a3a3a3;
   clip-path: polygon(0 0,75% 0,85% 60%,78% 100%,0 100%);
   min-width: 100px;
   min-height: 100px;
@@ -346,13 +358,13 @@ h1 {
 
 }
 .card-body {
-  background-color: #808c9b;
+  background-color: #a3a3a3;
   font-weight: 600;
   height: 100%;
 }
 .card img,.card {
   border-radius: 0px;
-  background-color: #b5c0ca!important;
+  background-color: #dbd6d0!important;
 }
 .card {
   clip-path: polygon(0 0,100% 0,100% 100%,80% 95%,0 100%);
@@ -371,7 +383,7 @@ h1 {
   clip-path: polygon(1% 33%,6% 0,100% 0,100% 100%,6% 100%,0% 66%)
 }
 .Languette_total {
-  background-color: #808c9b;
+  background-color: var(--autre);
   clip-path: polygon(0 0,60% 0,55% 50%,60% 100%,0 100%);
   text-align: right;
   padding-right: 45%;
