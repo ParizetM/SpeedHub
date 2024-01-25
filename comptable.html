@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /*loop through a collection of all HTML elements:*/
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain attribute:*/
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          /*make an HTTP request using the attribute value as the file name:*/
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) {
+                elmnt.innerHTML = this.responseText;
+              }
+              if (this.status == 404) {
+                elmnt.innerHTML = "Page not found.";
+              }
+              /*remove the attribute, and call this function once more:*/
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          };
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /*exit the function:*/
+          return;
+        }
+      }
+    }
+  </script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Configuration du Poste Comptable</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header include-html="header2.html"></header>
+    <div class="container_postes">
+      <h1>Configuration du Poste Comptable:</h1>
+      <div class="postes_ligne_gris">
+        <h2>Ordinateur Fixe Bureautique :</h2>
+        <div class="postes_grid_c1_c2">
+          <img src="IMG/hp pro mini.png" alt="pc pro">
+          <div>
+            <h2>HP Pro Mini 400 G9</h2>
+            <ul>
+              <li>Processeur : Intel® Core™ i3</li>
+              <li>Mémoire : 8 Go de RAM</li>
+              <li>Stockage : SSD 256 Go</li>
+              <li>Carte Graphique : Intel® UHD 730</li>
+              <p class="card-text">
+                <span class="text-success font-weight-bold">HT : 532,70 €</span>
+                <span class="text-danger font-weight-bold">ㅤTTC : 639,24 €</span>
+              </p>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x2">
+        <div class="card mb-3 cgauche" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img src="IMG/ecran_27'.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Écrans 24 Pouces (Quantité: 2)</h5>
+                <p class="card-text">Écrans HP E24i G4 pour un espace de travail étendu.</p>
+                <p class="card-text">
+                  <span class="text-success font-weight-bold">HT : 351,02 €</span>
+                  <span class="text-danger font-weight-bold">ㅤTTC : 421,22 €</span><br>ㅤ
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 cdroit" style="max-width: 540px;">
+          <img src="IMG/outlook.png" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Client de Messagerie</h5>
+            <p class="card-text">Logiciel Utilisé: Outlook (Inclus dans Microsoft 365)</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 0,00 €</span>
+              <span class="text-danger font-weight-bold">ㅤTTC : 0,00 €</span><br>ㅤ
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="_ligne_postes_card_x3">
+        <div class="card" style="width: 18rem;">
+          <img src="IMG/souris_ergo.png" class="card-img-top img-fluid" alt="..." style=" width: 10rem; margin: auto;">
+          <div class="card-body">
+            <h5 class="card-title">Souris Ergonomique</h5>
+            <p class="card-text">Série Ergo LIFT Logitech</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 79,99 €</span><br>
+              <span class="text-danger font-weight-bold">ㅤTTC : 95,988 €</span>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 27rem;">
+          <img src="IMG/clavier.png" class="card-img-top" alt="..." style="transform: scaleX(-1);">
+          <div class="card-body">
+            <h5 class="card-title">Clavier Ergonomique</h5>
+            <p class="card-text">Série Ergo LIFT Logitech</p>
+            <p class="card-text">
+              <span class="text-success font-weight-bold">HT : 33,33 €</span><br>
+              <span class="text-danger font-weight-bold">ㅤTTC : 39,99 €</span>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="IMG/imprimante_dir_&_compta.png" class="card-img-top" alt="..." style="transform: scaleX(-1);">
+          <div class="card-body">
+            <h5 class="card-title">Imprimante Jet d'Encre A4 Rechargeable</h5>
+                <p class="card-text">Imprimante EPSON EcoTank ET-2810 <br/> Format: A4 <br/> Rechargeable par bouteille</p>
+                <p class="card-text">
+                  <span class="text-success font-weight-bold">HT : 208,33 €</span>
+                  <span class="text-danger font-weight-bold">ㅤTTC : 249,99 €</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="Languette_total">
+        <h2>Prix total : <span class="text-success font-weight-bold">HT : 1 705,36 €</span>
+          <span class="text-danger font-weight-bold">ㅤTTC : 2 046,43 €</span></h2>
+      </div>
+    </div>
+    <footer include-html="footer.html"></footer>
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
