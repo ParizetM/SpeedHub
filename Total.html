@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+            file = elmnt.getAttribute("include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {
+                    elmnt.innerHTML = this.responseText;
+                  }
+                  if (this.status == 404) {
+                    elmnt.innerHTML = "Page not found.";
+                  }
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("include-html");
+                  includeHTML();
+                }
+              };
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+      </script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header include-html="header2.html"></header>
+    <h1>Résumé de tous les achats</h1>
+    <table>
+        <tr>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+            <td>Postes entrepôt</td>
+            <td>Poste étude et production</td>
+            <td>Poste secreétariat</td>
+            <td>Poste comptable</td>
+            <td>Poste commerciale</td>
+            <td>Poste direction</td>
+            <td>Total HT</td>
+            <td>Total TTC</td>
+        </tr>
+        <tr>
+            <td>Logiciel traitement de texte</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>81,9€ par mois</td>
+            <td>982,8€ par an</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Poste fixe bureautique</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>2130,8€</td>
+            <td>2556,96€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Poste avec RTX A2000</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>2077,99€</td>
+            <td>2493,59e</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Ordinateur portable</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>1102,33€</td>
+            <td>1322,8€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Station d'accueil</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>79,99€</td>
+            <td>95,99€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Écran 24 pouces</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>1053,05€</td>
+            <td>1263,66€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Écran 27 pouces</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>281,67€</td>
+            <td>338€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Écran 32 pouces 4k UHD</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>465,66€</td>
+            <td>558,79€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Souris ergonomique</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>479,94€</td>
+            <td>575,93€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Souris gaucher ergonomique</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>79,99€</td>
+            <td>95,99€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Clavier</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>166,63€</td>
+            <td>199,95€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Imprimante rechargeable</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>416,66€</td>
+            <td>499,99€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Imprimante poste entrepôt</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>299,92€</td>
+            <td>359,90€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+            <td>Imprimante A4 et A3</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>208,25€</td>
+            <td>249,90€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Imprimante 3D SLA</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>532€</td>
+            <td>638,40€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Imprimante 3D ABS et PLA</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>999€</td>
+            <td>1198,80€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Logiciel Imprimante 3D</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Gratuit</td>
+            <td>Gratuit</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Post traitement raisine</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>166,67€</td>
+            <td>200€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Scanner 3D</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>551€</td>
+            <td>661,20€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Tablette Graphique</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>65,83€</td>
+            <td>79€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Logiciel CAO</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>5833,33€</td>
+            <td>7000€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Logiciel Gestion commerciale et comptabilité</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>65,31€</td>
+            <td>783,65€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Site WEB</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>1250€</td>
+            <td>1500€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Serveur pour le site internet</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>281,35€</td>
+            <td>337,62€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Nom de domaine du site internet</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>6,60€</td>
+            <td>7,92€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Sauvegarde automatique sécurisé chaque nuit</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>33,33€</td>
+            <td>39,99e</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Formation Axonaut</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>3500e</td>
+            <td>3500€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Formation SolidWorks</td>
+            <td>Non</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>500€</td>
+            <td>500€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Boutique en ligne Shopify</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>79,99€ par mois</td>
+            <td>948€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Client messagerie</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Gratuit</td>
+            <td>Gratuit</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Serveur physique</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>966,62€</td>
+            <td>1159,94€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+        <tr>
+
+            <td>Stockage ficher</td>
+            <td>Oui</td>
+            <td>Oui</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>Non</td>
+            <td>126,58€</td>
+            <td>151,90€</td>
+            <td>ㅤㅤㅤㅤㅤㅤㅤㅤ</td>
+        </tr>
+    </table>
+
+  </body>
